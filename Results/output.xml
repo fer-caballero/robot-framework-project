@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.1 (Python 3.14.2 on win32)" generated="2026-02-01T20:21:22.890349" rpa="false" schemaversion="5">
+<suite id="s1" name="CRM" source="C:\Users\fernando.caballero\PycharmProjects\RobotProject\Tests\CRM.robot">
+<test id="s1-t1" name="The user should be able to login on CRM" line="9">
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-01T20:21:23.320012" level="INFO">Test Case start here!</msg>
+<arg>Test Case start here!</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-01T20:21:23.319699" elapsed="0.000400"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-02-01T20:21:23.320633" level="INFO">Opening browser 'chrome' to base url 'https://automationplayground.com/crm'.</msg>
+<arg>https://automationplayground.com/crm</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-02-01T20:21:23.320410" elapsed="3.397884"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-02-01T20:21:29.720633" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-02-01T20:21:26.719190" elapsed="3.001606"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-02-01T20:21:29.721178" elapsed="2.225964"/>
+</kw>
+<doc>Basic test case to automate a login process</doc>
+<tag>Smoke</tag>
+<tag>Test1</tag>
+<status status="PASS" start="2026-02-01T20:21:23.318575" elapsed="8.628947"/>
+</test>
+<doc>This is my first automation project with robot framework</doc>
+<status status="PASS" start="2026-02-01T20:21:22.893031" elapsed="9.055310"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">Smoke</stat>
+<stat pass="1" fail="0" skip="0">Test1</stat>
+</tag>
+<suite>
+<stat name="CRM" id="s1" pass="1" fail="0" skip="0">CRM</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
