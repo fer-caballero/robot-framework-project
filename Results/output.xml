@@ -1,37 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.1 (Python 3.14.2 on win32)" generated="2026-02-01T20:21:22.890349" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.1 (Python 3.14.2 on win32)" generated="2026-02-01T22:06:36.499632" rpa="false" schemaversion="5">
 <suite id="s1" name="CRM" source="C:\Users\fernando.caballero\PycharmProjects\RobotProject\Tests\CRM.robot">
 <test id="s1-t1" name="The user should be able to login on CRM" line="9">
 <kw name="Log" owner="BuiltIn">
-<msg time="2026-02-01T20:21:23.320012" level="INFO">Test Case start here!</msg>
+<msg time="2026-02-01T22:06:37.185668" level="INFO">Test Case start here!</msg>
 <arg>Test Case start here!</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2026-02-01T20:21:23.319699" elapsed="0.000400"/>
+<status status="PASS" start="2026-02-01T22:06:37.185185" elapsed="0.000603"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-02-01T20:21:23.320633" level="INFO">Opening browser 'chrome' to base url 'https://automationplayground.com/crm'.</msg>
+<msg time="2026-02-01T22:06:37.186853" level="INFO">Opening browser 'chrome' to base url 'https://automationplayground.com/crm'.</msg>
 <arg>https://automationplayground.com/crm</arg>
 <arg>chrome</arg>
+<arg>options=add_argument("--start-maximized")</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-02-01T20:21:23.320410" elapsed="3.397884"/>
+<status status="PASS" start="2026-02-01T22:06:37.186437" elapsed="4.192867"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-01T22:06:41.407316" level="INFO">Current page contains text 'Customers Are Priority One!'.</msg>
+<arg>Customers Are Priority One!</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-02-01T22:06:41.380255" elapsed="0.027301"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-02-01T22:06:41.409047" level="INFO">Clicking link 'id=SignIn'.</msg>
+<arg>id=SignIn</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-01T22:06:41.408235" elapsed="0.598465"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-01T22:06:42.027734" level="INFO">Current page contains text 'Login'.</msg>
+<arg>Login</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-02-01T22:06:42.007385" elapsed="0.020568"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-01T22:06:42.064958" level="INFO">Element 'id=email-id' is displayed.</msg>
+<arg>id=email-id</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-01T22:06:42.028560" elapsed="0.036584"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-02-01T22:06:42.100910" level="INFO">Element 'id=password' is displayed.</msg>
+<arg>id=password</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-02-01T22:06:42.065842" elapsed="0.035330"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-01T22:06:42.102530" level="INFO">Typing text 'test@gmail.com' into text field 'id=email-id'.</msg>
+<arg>id=email-id</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-01T22:06:42.101862" elapsed="0.190488"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-02-01T22:06:42.293389" level="INFO">Typing text 'pass123' into text field 'id=password'.</msg>
+<arg>id=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-01T22:06:42.292868" elapsed="0.145666"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-02-01T22:06:42.439655" level="INFO">Clicking button 'id=submit-id'.</msg>
+<arg>id=submit-id</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-02-01T22:06:42.439240" elapsed="0.123449"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-02-01T22:06:43.202436" level="INFO">Current page contains text 'Our Happy Customers'.</msg>
+<arg>Our Happy Customers</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-02-01T22:06:42.563602" elapsed="0.639025"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-02-01T22:06:43.203691" level="INFO">Login Success</msg>
+<arg>Login Success</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-02-01T22:06:43.203161" elapsed="0.000624"/>
 </kw>
 <kw name="Sleep" owner="BuiltIn">
-<msg time="2026-02-01T20:21:29.720633" level="INFO">Slept 3 seconds.</msg>
+<msg time="2026-02-01T22:06:46.205342" level="INFO">Slept 3 seconds.</msg>
 <arg>3s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-02-01T20:21:26.719190" elapsed="3.001606"/>
+<status status="PASS" start="2026-02-01T22:06:43.204172" elapsed="3.001412"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-02-01T20:21:29.721178" elapsed="2.225964"/>
+<status status="PASS" start="2026-02-01T22:06:46.206170" elapsed="2.416716"/>
 </kw>
 <doc>Basic test case to automate a login process</doc>
 <tag>Smoke</tag>
 <tag>Test1</tag>
-<status status="PASS" start="2026-02-01T20:21:23.318575" elapsed="8.628947"/>
+<status status="PASS" start="2026-02-01T22:06:37.183419" elapsed="11.440203"/>
 </test>
 <doc>This is my first automation project with robot framework</doc>
-<status status="PASS" start="2026-02-01T20:21:22.893031" elapsed="9.055310"/>
+<status status="PASS" start="2026-02-01T22:06:36.503475" elapsed="12.121435"/>
 </suite>
 <statistics>
 <total>
