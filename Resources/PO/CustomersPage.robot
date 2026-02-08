@@ -13,3 +13,6 @@ Verify if user is on customer service page
 
 Click on new customer button
     Click Element                    id=new-customer
+
+Verify Customer is Added
+    Wait Until Element Is Visible    id=Success

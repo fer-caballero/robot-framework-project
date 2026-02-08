@@ -3,8 +3,9 @@ Library          SeleniumLibrary
 Documentation    Login Page Object Model
 
 *** Variables ***
-${email}                       test@gmail.com
-${password}                    pass123
+# Estos actúan como valores por defecto si no se pasan argumentos
+${DEFAULT_EMAIL}               test@gmail.com
+${DEFAULT_PASSWORD}            pass123
 ${LOGIN_EMAIL_TEXTBOX}         id:email-id
 ${LOGIN_PASSWORD_TEXTBOX}      id:password
 ${LOGIN_BUTTON}                id:submit-id
@@ -12,12 +13,14 @@ ${LOGIN_BUTTON}                id:submit-id
 *** Keywords ***
 
 Enter email
-    Element Should Be Visible        ${LOGIN_EMAIL_TEXTBOX} 
-    Element Should Be Visible        ${LOGIN_PASSWORD_TEXTBOX}
+    [Arguments]                      ${user_email}=${DEFAULT_EMAIL}
+    Element Should Be Visible        ${LOGIN_EMAIL_TEXTBOX}
+    Input Text                       ${LOGIN_EMAIL_TEXTBOX}         ${user_email}
 
 Enter password
-    Input Text                       ${LOGIN_EMAIL_TEXTBOX}         ${email}
-    Input Text                       ${LOGIN_PASSWORD_TEXTBOX}      ${password}
+    [Arguments]                      ${user_password}=${DEFAULT_PASSWORD}
+    Element Should Be Visible        ${LOGIN_PASSWORD_TEXTBOX}
+    Input Text                       ${LOGIN_PASSWORD_TEXTBOX}      ${user_password}
 
 Click login button
     Click Button                     ${LOGIN_BUTTON}
@@ -26,11 +29,8 @@ Verify login
     Page Should Contain              Login
 
 User logged in
-    Page Should Contain              Login
-    Element Should Be Visible        ${LOGIN_EMAIL_TEXTBOX}
-    Element Should Be Visible        ${LOGIN_PASSWORD_TEXTBOX}
-    Input Text                       ${LOGIN_EMAIL_TEXTBOX}         ${email}
-    Input Text                       ${LOGIN_PASSWORD_TEXTBOX}      ${password}
-    Click Button                     ${LOGIN_BUTTON}
-
-
+    [Arguments]                      ${user_email}    ${user_password}
+    # Este keyword agrupa todo el proceso de login
+    Enter email                      ${user_email}
+    Enter password                   ${user_password}
+    Click login button
