@@ -6,52 +6,49 @@ Resource         ../Resources/PO/HomePage.robot
 Resource         ../Resources/PO/LoginPage.robot
 Resource         ../Resources/PO/CustomersPage.robot
 
+# Estos se ejecutan antes y después de CADA caso de prueba
+Test Setup       Begin Web Test
+Test Teardown    End Web Test
+
 *** Variables ***
+${URL}           https://automationplayground.com/crm
+${BROWSER}        chrome
+
+*** Keywords ***
+Begin Web Test
+    Open Browser                 ${URL}    ${BROWSER}    options=add_argument("--start-maximized")
+    Log                          Browser is open test starts
+
+End Web Test
+    Log                          Browser is closed test ends
+    Close Browser
 
 *** Test Cases ***
 The user should be able to login on CRM
     [Documentation]    Basic test case to automate a login process
-    [Tags]             Test1    Smoke
-    log                Test Case start here!
-    # Open the chrome browser and start with Maximized window
-    open browser       https://automationplayground.com/crm    chrome     options=add_argument("--start-maximized")
-
+    [Tags]             t1    smoke
     # Homepage
-    Page Should Contain    ${HOME_MAIN_HEADER}
-    Click Sign In Button
-
+    Given Page Should Contain    ${HOME_MAIN_HEADER}
+    When Click Sign In Button
     # Start Login Process
-    Login to sandbox CRM
-
-    Wait Until Element Is Visible    ${CUSTOMERS_TITLE}
-    Page Should Contain              ${CUSTOMERS_HEADER}
-
-    log                              Login Success
-    sleep                            2s
-    close browser
+    And Verify login
+    And Enter email
+    And Enter Password
+    And Click Login Button
+    And Wait Until Element Is Visible    ${CUSTOMERS_TITLE}
+    Then Page Should Contain              ${CUSTOMERS_HEADER}
+    Log                              Login Success
 
 The user should be able to add a new customer to the list
     [Documentation]    Automation of the add new customer to the list
-    [Tags]             Test2    add-customer
-    # Open the chrome browser and start with Maximized window
-    open browser       https://automationplayground.com/crm    chrome     options=add_argument("--start-maximized")
+    [Tags]             t2    add-customer
+    Given Page Should Contain    ${HOME_MAIN_HEADER}
+    And Click Sign In Button
+    And User logged in
+    And Verify if user is on customer service page
 
-    # Homepage
-    Page Should Contain    Customers Are Priority One!
-    Click Link             id=SignIn
-
-    # Start Login Process
-    Page Should Contain              Login
-    Element Should Be Visible        id=email-id
-    Element Should Be Visible        id=password
-    Input Text                       id=email-id    ${email}
-    Input Text                       id=password    ${password}
-    Click Button                     id=submit-id
-    Wait Until Element Is Visible    css=h2
-    Page Should Contain              Our Happy Customers
-    log                              Login Success
     # Add new customer
-    Click Element                    id=new-customer
+    And Click on new customer button
     Input Text                       id=EmailAddress    test@123.com
     Input Text                       id=FirstName       Fer
     Input Text                       id=LastName        Caballero
@@ -60,8 +57,7 @@ The user should be able to add a new customer to the list
     Click Element                    xpath=//input[@type='radio' and @value='male']
     #Click Element                    value=promos-yes
     Click Button                     xpath=//button[@type='submit']
-    Element Should Be Visible        id=Success
+    Wait Until Element Is Visible    id=Success
     #tear down
-    sleep                            3s
+    sleep                            2s
     close browser
-*** Keywords ***
